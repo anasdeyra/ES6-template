@@ -3,14 +3,10 @@ import express from "express";
 const app = express();
 
 app.listen(4000, () => {
-  console.log("server started at http://localhost:4000");
+  console.clear();
+  console.log("\x1b[1mServer is running \x1b[34mhttp://localhost:4000\x1b[0m");
 });
 
-app.get("/", async (req, res) => {
-  let s = 0;
-  for (var i = 0; i < 9999999; i++) {
-    s = i;
-  }
-  const f = `aaaa ${await s}`;
-  res.status(200).send(f);
+app.get("/", (req, res) => {
+  res.status(200).send("server working fine!");
 });
